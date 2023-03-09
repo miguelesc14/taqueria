@@ -1,3 +1,5 @@
 <?php
-echo 'Hola mundo';
+include("views/header.php");
+include("views/menu.php");
+include("views/footer.php");
 ?>
