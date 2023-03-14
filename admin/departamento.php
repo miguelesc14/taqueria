@@ -14,7 +14,16 @@ switch ($accion) {
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $cantidad = $web->new($data);
-            include('views/departamento/index.php');
+            if($cantidad){
+                $web->flash('success',"Registro dado de alta con éxito");
+                $data = $web->get();
+                include('views/departamento/index.php');
+            }
+            else{
+                $web->flash('danger',"Algo fallo");
+                include('views/departamento/form.php');
+            }
+           
         }
         else{
             include('views/departamento/form.php');
@@ -27,6 +36,18 @@ switch ($accion) {
         break;
     case 'delete':
         $cantidad = $web->delete($id);
+        
+            if($cantidad){
+                $web->flash('success',"Registro eliminado con éxito");
+                $data = $web->get();
+                include('views/departamento/index.php');
+            }
+            else{
+                $web->flash('danger',"Algo fallo");
+                include('views/departamento/form.php');
+            }
+           
+        
         break;
     case 'getAll':
     default:

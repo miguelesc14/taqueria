@@ -5,6 +5,6 @@
         <input type="text" name="data[departamento]" class="form-control"  placeholder="Nombre">
     </div>
     <div class="mb-3">
-    <input type="submit" name="enviar" value="Guardar" class="form-control">
+    <input type="submit" name="enviar" value="Guardar" class="form-control btn btn-primary">
     </div>
 </form>
