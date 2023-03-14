@@ -31,8 +31,26 @@ switch ($accion) {
 
         break;
     case 'edit':
-        $data = $web->get($id);
-        $cantidad = $web->edit($id, $data);
+        if (isset($_POST['enviar'])) {
+            $data = $_POST['data'];
+            $id = $_POST['data']['id_departamento'];
+            $cantidad = $web->edit($id,$data);
+            if($cantidad){
+                $web->flash('success',"Registro actualizado con éxito");
+                $data = $web->get();
+                include('views/departamento/index.php');
+            }
+            else{
+                $web->flash('danger',"Algo fallo");
+                $data = $web->get();
+                include('views/departamento/index.php');
+            }
+           
+        }
+        else{
+            $data = $web->get($id);
+            include('views/departamento/form.php');
+        }
         break;
     case 'delete':
         $cantidad = $web->delete($id);
