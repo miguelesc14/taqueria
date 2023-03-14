@@ -9,15 +9,14 @@ class Departamento extends Sistema
             $sql="SELECT * from departamento";
             $st = $this->db->prepare($sql);
             $st->execute();
-            $data = $st->fetchAll();
+            $data=$st->fetchAll(PDO::FETCH_ASSOC);
         }
         else{
             $sql="SELECT * from departamento where id_departamento = :id";
             $st = $this->db->prepare($sql);
-            $st= $this->bindParam(":id",$id);
+            $st->bindParam(":id",$id,PDO::PARAM_INT);
             $st->execute();
-            $data = $st->fetchAll();
-            $data=$data[0];
+            $data=$st->fetchAll(PDO::FETCH_ASSOC);
         }
        
         return $data;

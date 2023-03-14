@@ -4,9 +4,9 @@ include_once('views/header.php');
 include_once('views/menu.php');
 include_once('views/footer.php');
 
-$accion = (isset($_GET['action'])) ? isset($_GET['action']) : 'getAll';
+$accion = (isset($_GET['action'])) ?$_GET['action'] : 'get';
 
-$id = (isset($_GET['id'])) ? isset($_GET['id']) : null;
+$id = (isset($_GET['id'])) ?$_GET['id'] : null;
 
 switch ($accion) {
 
@@ -22,7 +22,7 @@ switch ($accion) {
 
         break;
     case 'edit':
-        $data = $web->getOne($id);
+        $data = $web->get($id);
         $cantidad = $web->edit($id, $data);
         break;
     case 'delete':
@@ -30,7 +30,7 @@ switch ($accion) {
         break;
     case 'getAll':
     default:
-        $data = $web->getAll();
+        $data = $web->get($id);
         include("views/departamento/index.php");
 }
 
