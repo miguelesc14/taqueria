@@ -9,7 +9,7 @@
     <div class="mb-3">
         <?php 
         if($accion=='edit'): ?>
-        <input type="hidden" name="data[id_departamento]" value="<?php echo isset($data[0]['departamento'])?$data[0]['id_departamento']:'';?>">
+        <input type="hidden" name="data[id_departamento]" value="<?php echo isset($data[0]['id_departamento'])?$data[0]['id_departamento']:'';?>">
 
         <?php endif;?>
 

@@ -44,6 +44,11 @@
     <tr>
         <th scope="col"></th>
         <th scope="col"></th>
-        <th scope="col">Se encontraron <?php echo sizeof($data); ?> registros.</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">Se encontraron
+            <?php echo sizeof($data); ?> registros.
+        </th>
     </tr>
 </table>
