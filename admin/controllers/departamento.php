@@ -31,6 +31,7 @@ class Departamento extends Sistema
         $rc = $st->RowCount();
         return $rc;
     }
+    
     public function edit($id, $data)
     {
         $this->db();

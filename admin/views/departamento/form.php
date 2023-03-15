@@ -1,4 +1,6 @@
-<h1><?php echo isset($data[0]['departamento'])?"Departamento editar":'Departamento nuevo';?></h1>
+<h1>
+    <?php echo ($accion == 'edit') ? 'Modificar ' : 'Nuevo ' ?>Departamento
+</h1>
 <form method="POST" action="departamento.php?action=<?php echo $accion; ?>">
     <div class="mb-3">
         <label  class="form-label">Nombre del Departamento</label>
