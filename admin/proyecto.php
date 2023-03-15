@@ -70,7 +70,7 @@ switch ($accion) {
     case 'getAll':
     default:
         $data = $web->get($id);
-        include("views/departamento/index.php");
+        include("views/proyecto/index.php");
 }
 
 ?>
