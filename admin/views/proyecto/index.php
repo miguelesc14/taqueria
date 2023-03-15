@@ -9,7 +9,6 @@
             <th scope="col" class="col-md-1">Fecha Inicial</th>
             <th scope="col" class="col-md-1">Fecha Final</th>
             <th scope="col" class="col-md-3">Opciones</th>
-            <th>Opciones</th>
         </tr>
     </thead>
     <tbody>
