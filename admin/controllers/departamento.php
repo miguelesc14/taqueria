@@ -55,5 +55,5 @@ class Departamento extends Sistema
     }
 
 }
-$web = new Departamento;
+$departamento = new Departamento;
 ?>

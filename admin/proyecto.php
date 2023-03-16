@@ -1,5 +1,6 @@
 <?php
 require_once("controllers/proyecto.php");
+require_once("controllers/departamento.php");
 include_once('views/header.php');
 include_once('views/menu.php');
 include_once('views/footer.php');
@@ -11,16 +12,17 @@ $id = (isset($_GET['id'])) ?$_GET['id'] : null;
 switch ($accion) {
 
     case 'new':
+        $datadepartamentos=$departamento->get();
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
-            $cantidad = $web->new($data);
+            $cantidad = $proyecto->new($data);
             if($cantidad){
-                $web->flash('success',"Registro dado de alta con éxito");
-                $data = $web->get();
+                $proyecto->flash('success',"Registro dado de alta con éxito");
+                $data = $proyecto->get();
                 include('views/proyecto/index.php');
             }
             else{
-                $web->flash('danger',"Algo fallo");
+                $proyecto->flash('danger',"Algo fallo");
                 include('views/proyecto/form.php');
             }
            
@@ -34,34 +36,34 @@ switch ($accion) {
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $id = $_POST['data']['id_proyecto'];
-            $cantidad = $web->edit($id,$data);
+            $cantidad = $proyecto->edit($id,$data);
             if($cantidad){
-                $web->flash('success',"Registro actualizado con éxito");
-                $data = $web->get();
+                $proyecto->flash('success',"Registro actualizado con éxito");
+                $data = $proyecto->get();
                 include('views/proyecto/index.php');
             }
             else{
-                $web->flash('danger',"Algo fallo");
-                $data = $web->get();
+                $proyecto->flash('danger',"Algo fallo");
+                $data = $proyecto->get();
                 include('views/proyecto/index.php');
             }
            
         }
         else{
-            $data = $web->get($id);
+            $data = $proyecto->get($id);
             include('views/proyecto/form.php');
         }
         break;
     case 'delete':
-        $cantidad = $web->delete($id);
+        $cantidad = $proyecto->delete($id);
         
             if($cantidad){
-                $web->flash('success',"Registro eliminado con éxito");
-                $data = $web->get();
+                $proyecto->flash('success',"Registro eliminado con éxito");
+                $data = $proyecto->get();
                 include('views/proyecto/index.php');
             }
             else{
-                $web->flash('danger',"Algo fallo");
+                $proyecto->flash('danger',"Algo fallo");
                 include('views/proyecto/form.php');
             }
            
@@ -69,7 +71,7 @@ switch ($accion) {
         break;
     case 'getAll':
     default:
-        $data = $web->get($id);
+        $data = $proyecto->get($id);
         include("views/proyecto/index.php");
 }
 

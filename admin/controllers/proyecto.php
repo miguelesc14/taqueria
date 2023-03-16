@@ -61,5 +61,5 @@ class Proyecto extends Sistema
     }
 
 }
-$web = new Proyecto;
+$proyecto = new Proyecto;
 ?>

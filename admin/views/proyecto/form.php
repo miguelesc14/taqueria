@@ -23,6 +23,15 @@
         value="<?php echo isset($data[0]['fecha_final'])?$data[0]['fecha_final']: ''; ?>" />
     </div>
     <div class="mb-3">
+        <label  class="form-label">Departamento</label>
+        <select name="data[id_departamento]" class="form-control" required>
+            <?php foreach($datadepartamentos as $key => $depto): ?>
+            <option value="<?php echo $depto['id_departamento']; ?>"><?php echo $depto ['departamento']; ?></option>
+            <?php endforeach; ?>
+
+        </select>
+    </div>
+    <div class="mb-3">
         <?php 
         if($accion=='edit'): ?>
         <input type="hidden" name="data[id_proyecto]" 
