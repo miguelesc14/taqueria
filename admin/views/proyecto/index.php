@@ -35,7 +35,7 @@
                 </td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Menu Renglon">
-                    <a class="btn btn-dark"
+                        <a class="btn btn-dark"
                             href="proyecto.php?action=task&id=<?php echo $proyecto['id_proyecto'] ?>">Tareas</a>
                         <a class="btn btn-primary"
                             href="proyecto.php?action=edit&id=<?php echo $proyecto['id_proyecto'] ?>">Modificar</a>

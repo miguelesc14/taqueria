@@ -13,13 +13,23 @@ class Sistema
     {
         include('views/flash.php');
     }
-    public function uploadfile($tipo,$ruta)
+    public function uploadfile($tipo,$ruta,$archivo)
     {
         $name = false;
-        print_r($_FILES);
-        die();
-        if (move_uploaded_file($origen, $destino)) {
-
+        $uploads['archivo']= array("application/gzip", "application/zip");
+        $uploads['fotografia']= array("image/jpeg", "image/gif", "image/png");
+        if($_FILES[$tipo]['error']==0){
+            if(in_array($_FILES[$tipo]['type'], $uploads['archivo'])){
+                if($_FILES[$tipo]['size']<=2 * 1048 * 10){
+                    $origen = $_FILES[$tipo]['tmp_name'];
+                    $ext = explode(".", $_FILES[$tipo]['name']);
+                    $ext = $ext[sizeof($ext)-1];
+                    $destino = $ruta . $archivo . "." . $ext;
+                        if (move_uploaded_file($origen, $destino)) {
+                            $name = $destino;
+                        }
+                }
+            }
         }
         return $name;
     }

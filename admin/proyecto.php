@@ -15,8 +15,7 @@ switch ($accion) {
       
         $datadepartamentos=$departamento->get();
         if (isset($_POST['enviar'])) {
-            $proyecto->uploadfile('x','y');
-            die();
+            
             $data = $_POST['data'];
             $cantidad = $proyecto->new($data);
             if($cantidad){

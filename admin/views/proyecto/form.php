@@ -39,7 +39,7 @@
     </div>
     <div class="mb-3">
         <label  class="form-label">Archivo Adjunto</label>
-        <input type="file" name="data[archivo]" class="form-control"/>
+        <input type="file" name="archivo" class="form-control"/>
     </div>
     <div class="mb-3">
         <?php 

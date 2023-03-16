@@ -24,13 +24,23 @@ class Proyecto extends Sistema
     public function new ($data)
     {
         $this->db();
+        $nombrearchivo = str_replace(" ", "_",$data['proyecto']);
+        $nombrearchivo = substr($nombrearchivo,0,20);
         $sql = "insert into proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento) values (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento)";
+        $sesubio= $this->uploadfile("archivo","upload/proyectos/",$nombrearchivo);
+
+        if($sesubio){
+            $sql = "insert into proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento, archivo) values (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento, :archivo)";    
+        }
         $st = $this->db->prepare($sql);
         $st->bindParam(":proyecto", $data['proyecto'], PDO::PARAM_STR);
         $st->bindParam(":descripcion", $data['descripcion'], PDO::PARAM_STR);
         $st->bindParam(":fecha_inicial", $data['fecha_inicial'], PDO::PARAM_STR);
         $st->bindParam(":fecha_final", $data['fecha_final'], PDO::PARAM_STR);
         $st->bindParam(":id_departamento", $data['id_departamento'], PDO::PARAM_INT);
+        if($sesubio){
+            $st->bindParam(":archivo", $sesubio, PDO::PARAM_STR);
+        }
         $st->execute();
         $rc = $st->RowCount();
         return $rc;
