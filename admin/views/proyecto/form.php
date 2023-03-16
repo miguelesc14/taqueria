@@ -1,7 +1,7 @@
 <h1>
     <?php echo ($accion == 'edit') ? 'Modificar ' : 'Nuevo ' ?>Proyecto
 </h1>
-<form method="POST" action="proyecto.php?action=<?php echo $accion; ?>">
+<form method="POST" action="proyecto.php?action=<?php echo $accion; ?>" enctype="multipart/form-data">
     <div class="mb-3">
         <label  class="form-label">Nombre del Proyecto</label>
         <input type="text" name="data[proyecto]" class="form-control"  placeholder="proyecto" 
@@ -25,11 +25,21 @@
     <div class="mb-3">
         <label  class="form-label">Departamento</label>
         <select name="data[id_departamento]" class="form-control" required>
-            <?php foreach($datadepartamentos as $key => $depto): ?>
-            <option value="<?php echo $depto['id_departamento']; ?>"><?php echo $depto ['departamento']; ?></option>
-            <?php endforeach; ?>
 
+            <?php 
+            foreach($datadepartamentos as $key => $depto): 
+            $selected=" ";
+                if($depto['id_departamento']==$data[0]['id_departamento']):
+                $selected="selected";
+            endif;
+            ?>
+            <option value="<?php echo $depto['id_departamento']; ?>" <?php echo $selected; ?>><?php echo $depto ['departamento']; ?></option>
+            <?php endforeach; ?>
         </select>
+    </div>
+    <div class="mb-3">
+        <label  class="form-label">Archivo Adjunto</label>
+        <input type="file" name="data[archivo]" class="form-control"/>
     </div>
     <div class="mb-3">
         <?php 

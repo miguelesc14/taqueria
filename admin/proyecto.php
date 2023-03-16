@@ -12,8 +12,11 @@ $id = (isset($_GET['id'])) ?$_GET['id'] : null;
 switch ($accion) {
 
     case 'new':
+      
         $datadepartamentos=$departamento->get();
         if (isset($_POST['enviar'])) {
+            $proyecto->uploadfile('x','y');
+            die();
             $data = $_POST['data'];
             $cantidad = $proyecto->new($data);
             if($cantidad){
@@ -33,6 +36,7 @@ switch ($accion) {
 
         break;
     case 'edit':
+        $datadepartamentos=$departamento->get();
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $id = $_POST['data']['id_proyecto'];

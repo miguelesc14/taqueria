@@ -39,13 +39,14 @@ class Proyecto extends Sistema
     public function edit($id, $data)
     {
         $this->db();
-        $sql = "update proyecto set proyecto = :proyecto, descripcion = :descripcion, fecha_inicial = :fecha_inicial, fecha_final = :fecha_final where id_proyecto = :id";
+        $sql = "update proyecto set proyecto = :proyecto, descripcion = :descripcion, fecha_inicial = :fecha_inicial, fecha_final = :fecha_final, id_departamento=:id_departamento where id_proyecto = :id";
         $st = $this->db->prepare($sql);
         $st->bindParam(":id", $id, PDO::PARAM_INT);
         $st->bindParam(":proyecto", $data['proyecto'], PDO::PARAM_STR);
         $st->bindParam(":descripcion", $data['descripcion'], PDO::PARAM_STR);
         $st->bindParam(":fecha_inicial", $data['fecha_inicial'], PDO::PARAM_STR);
         $st->bindParam(":fecha_final", $data['fecha_final'], PDO::PARAM_STR);
+        $st->bindParam(":id_departamento", $data['id_departamento'], PDO::PARAM_INT);
         $st->execute();
         $rc = $st->RowCount();
         return $rc;
