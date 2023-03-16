@@ -6,12 +6,12 @@ class Proyecto extends Sistema
     {
         $this->db();
         if (is_null($id)) {
-            $sql = "SELECT * from proyecto";
+            $sql = "SELECT * from proyecto p left join departamento d on p.id_departamento = d.id_departamento";
             $st = $this->db->prepare($sql);
             $st->execute();
             $data = $st->fetchAll(PDO::FETCH_ASSOC);
         } else {
-            $sql = "SELECT * from proyecto where id_proyecto = :id";
+            $sql = "SELECT * from proyecto p left join departamento d on p.id_departamento = d.id_departamento where p.id_proyecto = :id";
             $st = $this->db->prepare($sql);
             $st->bindParam(":id", $id, PDO::PARAM_INT);
             $st->execute();

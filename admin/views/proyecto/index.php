@@ -4,11 +4,12 @@
     <thead>
         <tr>
             <th scope="col" class="col-md-1">id</th>
-            <th scope="col" class="col-md-3">Proyecto</th>
-            <th scope="col" class="col-md-3">Descripción</th>
+            <th scope="col" class="col-md-2">Departamento</th>
+            <th scope="col" class="col-md-2">Proyecto</th>
+            <th scope="col" class="col-md-2">Descripción</th>
             <th scope="col" class="col-md-1">Fecha Inicial</th>
             <th scope="col" class="col-md-1">Fecha Final</th>
-            <th scope="col" class="col-md-3">Opciones</th>
+            <th scope="col" class="col-md-2">Opciones</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,9 @@
                 <th scope="row">
                     <?php echo $proyecto['id_proyecto']; ?>
                 </th>
+                <td>
+                    <?php echo $proyecto['departamento']; ?>
+                </td>
                 <td>
                     <?php echo $proyecto['proyecto']; ?>
                 </td>
@@ -41,6 +45,7 @@
         <?php endforeach; ?>
     </tbody>
     <tr>
+        <th scope="col"></th>
         <th scope="col"></th>
         <th scope="col"></th>
         <th scope="col"></th>
