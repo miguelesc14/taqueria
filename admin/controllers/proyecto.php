@@ -24,12 +24,13 @@ class Proyecto extends Sistema
     public function new ($data)
     {
         $this->db();
-        $sql = "insert into proyecto (proyecto, descripcion, fecha_inicial, fecha_final) values (:proyecto, :descripcion, :fecha_inicial, :fecha_final)";
+        $sql = "insert into proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento) values (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento)";
         $st = $this->db->prepare($sql);
         $st->bindParam(":proyecto", $data['proyecto'], PDO::PARAM_STR);
         $st->bindParam(":descripcion", $data['descripcion'], PDO::PARAM_STR);
         $st->bindParam(":fecha_inicial", $data['fecha_inicial'], PDO::PARAM_STR);
         $st->bindParam(":fecha_final", $data['fecha_final'], PDO::PARAM_STR);
+        $st->bindParam(":id_departamento", $data['id_departamento'], PDO::PARAM_INT);
         $st->execute();
         $rc = $st->RowCount();
         return $rc;
