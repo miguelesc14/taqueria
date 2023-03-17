@@ -15,9 +15,10 @@ class Sistema
     }
     public function uploadfile($tipo,$ruta,$archivo)
     {
+        
         $name = false;
-        $uploads['archivo']= array("application/gzip", "application/zip");
-        $uploads['fotografia']= array("image/jpeg", "image/gif", "image/png");
+        $uploads['archivo']= array("application/gzip", "application/zip","application/x-zip-compressed","image/jpeg", "image/gif", "image/png");
+        //$uploads['fotografia']= array();
         if($_FILES[$tipo]['error']==0){
             if(in_array($_FILES[$tipo]['type'], $uploads['archivo'])){
                 if($_FILES[$tipo]['size']<=2 * 1048 * 10){
@@ -27,7 +28,9 @@ class Sistema
                     $destino = $ruta . $archivo . "." . $ext;
                         if (move_uploaded_file($origen, $destino)) {
                             $name = $destino;
+                            
                         }
+                       
                 }
             }
         }

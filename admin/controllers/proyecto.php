@@ -25,9 +25,9 @@ class Proyecto extends Sistema
     {
         $this->db();
         $nombrearchivo = str_replace(" ", "_",$data['proyecto']);
-        $nombrearchivo = substr($nombrearchivo,0,20);
+        $nombrearchivo = substr($nombrearchivo,0,50);
         $sql = "insert into proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento) values (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento)";
-        $sesubio= $this->uploadfile("archivo","upload/proyectos/",$nombrearchivo);
+        $sesubio= $this->uploadfile("archivo","uploads/proyectos/",$nombrearchivo);
 
         if($sesubio){
             $sql = "insert into proyecto (proyecto, descripcion, fecha_inicial, fecha_final, id_departamento, archivo) values (:proyecto, :descripcion, :fecha_inicial, :fecha_final, :id_departamento, :archivo)";    

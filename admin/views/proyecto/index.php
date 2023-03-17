@@ -1,3 +1,4 @@
+<div class="container">
 <h1>Proyectos</h1>
 <a href="proyecto.php?action=new" class="btn btn-success">Nuevo</a>
 <table class="table">
@@ -58,3 +59,4 @@
         </th>
     </tr>
 </table>
+</div>
