@@ -2,10 +2,12 @@
 require_once('config.php');
 class Sistema
 {
+
     var $db = null;
+
     public function db()
     {
-        $dsn = DBDRIVER . ':host=' . DBHOST . ';dbname=' . DBNAME . ';port' . DBPORT;
+        $dsn = DBDRIVER . ':host=' . DBHOST . ';dbname=' . DBNAME . ';port=' . DBPORT;
         $this->db = new PDO($dsn, DBUSER, DBPASS);
     }
 
@@ -13,29 +15,30 @@ class Sistema
     {
         include('views/flash.php');
     }
-    public function uploadfile($tipo,$ruta,$archivo)
+
+    public function uploadfile($tipo, $ruta, $archivo)
     {
-        
         $name = false;
-        $uploads['archivo']= array("application/gzip", "application/zip","application/x-zip-compressed","image/jpeg", "image/gif", "image/png");
-        //$uploads['fotografia']= array();
-        if($_FILES[$tipo]['error']==0){
-            if(in_array($_FILES[$tipo]['type'], $uploads['archivo'])){
-                if($_FILES[$tipo]['size']<=2 * 1048 * 10){
+        $uploads['archivo'] = array("application/gzip", "application/zip", "application/x-zip-compressed");
+        $uploads['fotografia'] = array("image/jpeg", "image/jpg", "image/gif", "image/png");
+        if($_FILES[$tipo]['error']==4){
+            return $name;
+            
+        }
+        if ($_FILES[$tipo]['error'] == 0) {
+            if (in_array($_FILES[$tipo]['type'], $uploads['archivo'])) {
+                if ($_FILES[$tipo]['size'] <= 2 * 1048 * 1048) {
                     $origen = $_FILES[$tipo]['tmp_name'];
                     $ext = explode(".", $_FILES[$tipo]['name']);
-                    $ext = $ext[sizeof($ext)-1];
+                    $ext = $ext[sizeof($ext) - 1];
                     $destino = $ruta . $archivo . "." . $ext;
-                        if (move_uploaded_file($origen, $destino)) {
-                            $name = $destino;
-                            
-                        }
-                       
+                    if (move_uploaded_file($origen, $destino)) {
+                        $name = $destino;
+                    }
                 }
             }
         }
         return $name;
     }
-
 }
 ?>

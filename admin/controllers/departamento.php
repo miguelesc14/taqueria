@@ -1,22 +1,23 @@
 <?php
-require_once("Sistema.php");
+require_once("sistema.php");
 class Departamento extends Sistema
 {
     public function get($id = null)
     {
         $this->db();
         if (is_null($id)) {
-            $sql = "SELECT * from departamento";
+            $sql = "select * from departamento";
             $st = $this->db->prepare($sql);
             $st->execute();
-            $data = $st->fetchAll(PDO::FETCH_ASSOC);
+            $data = $st->fetchAll();
         } else {
-            $sql = "SELECT * from departamento where id_departamento = :id";
+            $sql = "select * from departamento where id_departamento=:id";
             $st = $this->db->prepare($sql);
             $st->bindParam(":id", $id, PDO::PARAM_INT);
             $st->execute();
             $data = $st->fetchAll(PDO::FETCH_ASSOC);
         }
+
 
         return $data;
     }
@@ -24,36 +25,37 @@ class Departamento extends Sistema
     public function new ($data)
     {
         $this->db();
-        $sql = "insert into departamento (departamento) values (:departamento)";
+        $sql = "INSERT INTO departamento (departamento) VALUES (:departamento)";
         $st = $this->db->prepare($sql);
         $st->bindParam(":departamento", $data['departamento'], PDO::PARAM_STR);
         $st->execute();
-        $rc = $st->RowCount();
+
+        $rc = $st->rowCount();
         return $rc;
     }
-    
     public function edit($id, $data)
     {
         $this->db();
-        $sql = "update departamento set departamento = :departamento where id_departamento = :id";
+        $sql = "UPDATE departamento SET departamento = :departamento where id_departamento= :id";
         $st = $this->db->prepare($sql);
         $st->bindParam(":id", $id, PDO::PARAM_INT);
         $st->bindParam(":departamento", $data['departamento'], PDO::PARAM_STR);
         $st->execute();
-        $rc = $st->RowCount();
+
+        $rc = $st->rowCount();
         return $rc;
     }
     public function delete($id)
     {
         $this->db();
-        $sql = "delete from departamento where id_departamento=:id";
+        $sql = "DELETE FROM departamento WHERE id_departamento=:id";
         $st = $this->db->prepare($sql);
-        $st->bindParam(":id", $id, PDO::PARAM_STR);
+        $st->bindParam(":id", $id, PDO::PARAM_INT);
         $st->execute();
-        $rc = $st->RowCount();
+
+        $rc = $st->rowCount();
         return $rc;
     }
-
 }
 $departamento = new Departamento;
 ?>
