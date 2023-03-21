@@ -39,6 +39,11 @@
     </div>
     <div class="mb-3">
         <label  class="form-label">Archivo Adjunto</label>
+        <?php if ($accion == 'edit'):  ?>
+        <div  class="alert alert-primary" role="alert">
+            <a href="<?php $data[0]['archivo']?>" target="_blank">Descargar el adjunto actual</a>
+        </div>
+        <?php endif; ?>
         <input type="file" name="archivo" class="form-control"/>
     </div>
     <div class="mb-3">
