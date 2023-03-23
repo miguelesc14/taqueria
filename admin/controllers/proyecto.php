@@ -145,6 +145,20 @@ class Proyecto extends Sistema
         $rc = $st->rowCount();
         return $rc;
     }
+
+    public function newTask ($id, $data)
+    {
+        $this->db();
+        $sql = "INSERT INTO tarea (id_proyecto, tarea, avance) VALUES (:id_proyecto, :tarea, :avance)";
+        $st = $this->db->prepare($sql);
+        $st->bindParam(":id_proyecto", $id, PDO::PARAM_INT);
+        $st->bindParam(":tarea", $data['tarea'], PDO::PARAM_STR);
+        $st->bindParam(":avance", $data['avance'], PDO::PARAM_INT);
+        $st->execute();
+
+        $rc = $st->rowCount();
+        return $rc;
+    }
 }
 
 $proyecto = new Proyecto; //Objeto de la clase Proyecto

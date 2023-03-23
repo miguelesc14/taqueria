@@ -2,7 +2,7 @@
     <?php echo $data[0]['proyecto']; ?>
 </h1>
 
-<form method="POST" action="proyecto.php?action=<?php echo $action; ?>">
+<form method="POST" action="proyecto.php?action=<?php echo $action; ?>&id=<?php echo($data[0]['id_proyecto']) ?>">
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Nombre tarea</label>
         <input type="text" name="data[tarea]" class="form-control" placeholder="Tarea"
@@ -22,7 +22,7 @@
                 value="<?php echo isset($data[0]['id_departamento']) ? $data[0]['id_departamento'] : ''; ?>" class="" />
 
         <?php endif; ?>
-        <input type="submit" name="enviar" value="Guardar" class="" />
+        <input type="submit" name="enviar" value="Guardar" class="btn btn-primary" />
 
     </div>
 </form>
