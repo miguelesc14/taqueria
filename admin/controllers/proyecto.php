@@ -178,6 +178,21 @@ class Proyecto extends Sistema
 
         return $data;
     }
+
+    public function editTask($id, $id_tarea, $data)
+    {
+        $this->db();
+        $sql = "UPDATE tarea SET tarea = :tarea, avance=:avance where id_tarea= :id_tarea AND id_proyecto=:id";
+        $st = $this->db->prepare($sql);
+        $st->bindParam(":id", $id, PDO::PARAM_INT);
+        $st->bindParam(":id_tarea", $id_tarea, PDO::PARAM_INT);
+        $st->bindParam(":tarea", $data['tarea'], PDO::PARAM_STR);
+        $st->bindParam(":avance", $data['avance'], PDO::PARAM_INT);
+        $st->execute();
+
+        $rc = $st->rowCount();
+        return $rc;
+    }
 }
 
 $proyecto = new Proyecto; //Objeto de la clase Proyecto

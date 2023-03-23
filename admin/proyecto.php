@@ -96,12 +96,23 @@ switch ($action) {
         //$data_tarea = $proyecto->getTask($id);
 
         break;
+
     case 'edittask':
         $data = $proyecto->get($id);
-        $data_tarea = $proyecto->getTaskOne($id_tarea);
         if (isset($_POST['enviar'])) {
+            $data2 = $_POST['data'];
+            $id_tarea = $_POST['data']['id_tarea'];
+            $cantidad = $proyecto->editTask($id,$id_tarea, $data2);
+            if ($cantidad) {
+                $proyecto->flash('success', 'Registro dado de alta con éxito');
+            } else {
+                $proyecto->flash('danger', 'Algo fallo');
+            } 
+            $data_tarea = $proyecto->getTask($id);
+            include('views/proyecto/tarea.php');
 
         } else {
+            $data_tarea = $proyecto->getTaskOne($id_tarea);
             include('views/proyecto/tarea_form.php');
         }
         break;
