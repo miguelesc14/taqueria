@@ -1,4 +1,5 @@
-<h1 class="text-center">Agregar tarea al proyecto:
+<h1 class="text-center">
+    <?php echo ($action == 'edit') ? 'Modificar' : 'Nueva'; ?> Tarea
     <?php echo $data[0]['proyecto']; ?>
 </h1>
 
@@ -6,20 +7,22 @@
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Nombre tarea</label>
         <input type="text" name="data[tarea]" class="form-control" placeholder="Tarea"
-            value="<?php echo isset($data[0]['tarea']) ? $data[0]['tarea'] : ''; ?>" />
+            value="<?php echo isset($data_tarea[0]['tarea']) ? $data_tarea[0]['tarea'] : ''; ?>" />
     </div>
     <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Avance tarea</label>
+        <?php echo isset($data_tarea[0]['avance']) ? $data_tarea[0]['avance'] : ''; ?>
+            <p>Porcentaje de avance: <output id="value"></output>
         <input id= "por_avance" type="range" name="data[avance]" class="form-control" placeholder="Avance"
-            value="<?php echo isset($data[0]['tarea']) ? $data[0]['tarea'] : ''; ?>" />
+            value="<?php echo isset($data_tarea[0]['avance']) ? $data_tarea[0]['avance'] : ''; ?>" />
             <p>Porcentaje de avance: <output id="value"></output></p>
     </div>
     <div class="mb-3">
     <input type="hidden" name="data[id_proyecto]" value="<?php echo($data[0]['id_proyecto']) ?>">
         <?php
-        if ($action == 'edit'): ?>
-            <input type="hidden" name="data[id_departamento]"
-                value="<?php echo isset($data[0]['id_departamento']) ? $data[0]['id_departamento'] : ''; ?>" class="" />
+        if ($action == 'edittask'): ?>
+            <input type="hidden" name="data[id_tarea]"
+                value="<?php echo isset($data_tarea[0]['id_tarea']) ? $data_tarea[0]['id_tarea'] : ''; ?>" class="" />
 
         <?php endif; ?>
         <input type="submit" name="enviar" value="Guardar" class="btn btn-primary" />

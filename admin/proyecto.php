@@ -96,6 +96,16 @@ switch ($action) {
         //$data_tarea = $proyecto->getTask($id);
 
         break;
+    case 'edittask':
+        $data = $proyecto->get($id);
+        $data_tarea = $proyecto->getTaskOne($id_tarea);
+        if (isset($_POST['enviar'])) {
+
+        } else {
+            include('views/proyecto/tarea_form.php');
+        }
+        break;
+
     case 'getAll':
     default:
         $data = $proyecto->get(null);

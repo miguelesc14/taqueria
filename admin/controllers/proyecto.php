@@ -159,6 +159,25 @@ class Proyecto extends Sistema
         $rc = $st->rowCount();
         return $rc;
     }
+
+    public function getTaskOne($id)
+    {
+        $data=null;
+        $this->db();
+        if (is_null($id)) {
+            die("Ocurrio un error :c");
+        } else {
+            $sql = "select * from tarea t left join proyecto p 
+            on p.id_proyecto = t.id_proyecto where t.id_tarea=:id";
+            $st = $this->db->prepare($sql);
+            $st->bindParam(":id", $id, PDO::PARAM_INT);
+            $st->execute();
+            $data = $st->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+
+        return $data;
+    }
 }
 
 $proyecto = new Proyecto; //Objeto de la clase Proyecto
