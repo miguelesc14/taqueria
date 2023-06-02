@@ -1,50 +1,69 @@
-<section class="vh-100">
-  <div class="container py-5 h-100">
-    <div class="row d-flex align-items-center justify-content-center h-100">
-      <div class="col-md-8 col-lg-7 col-xl-6">
-        <img src="images/draw2.svg"
-          class="img-fluid" alt="Phone image">
-      </div>
-      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <form>
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input type="email" id="form1Example13" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example13">Email address</label>
-          </div>
+<?php
+include('views/header.php');
+include('views/menu.php');
 
-          <!-- Password input -->
-          <div class="form-outline mb-4">
-            <input type="password" id="form1Example23" class="form-control form-control-lg" />
-            <label class="form-label" for="form1Example23">Password</label>
-          </div>
 
-          <div class="d-flex justify-content-around align-items-center mb-4">
-            <!-- Checkbox -->
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-              <label class="form-check-label" for="form1Example3"> Remember me </label>
-            </div>
-            <a href="#!">Forgot password?</a>
-          </div>
-
-          <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
-
-          <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-          </div>
-
-          <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
-            role="button">
-            <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
-          </a>
-          <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
-            role="button">
-            <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
-
-        </form>
-      </div>
+?>
+<div id="services" class="service">
+<div class="container-fluid">
+    <div class="row">
+        &nbsp;
     </div>
-  </div>
-</section>
+   <div class="row">
+        <div class='col-1'>
+                    &nbsp;
+                </div>
+                <div class="col">
+                <div class="col">
+                <div class="card bg-transparent border my-3 my-md-0">
+                    <div style="margin: 5%;">
+                    <form method="POST" action="login.php?action=login">
+                        <div class="form-outline mb-4">
+                        <input type="email" id="form3Example3" name="correo" class="form-control" required/>
+                        <label class="form-label" for="form3Example3">Correo electrónico</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                        <input type="password" id="form3Example4" name="contrasena" class="form-control" required/>
+                        <label class="form-label" for="form3Example4">Contraseña</label>
+                        </div>
+
+                        <div class="form-check d-flex justify-content-center mb-4">
+                        <label class="form-check-label" for="form2Example33">
+                            ¿No tienes cuenta? <a href='registro.php' class='linke'>Registrate</a>
+                        </label>
+                        </div>
+
+                        <div class="form-check d-flex justify-content-center mb-4">
+                        <label class="form-check-label" for="form2Example33">
+                        <a href="login.php?action=forgot" class='linke'>¿Olvidaste tu contraseña?</a>
+                        </label>
+                        </div>
+
+
+                        <!-- Submit button -->
+                        <input type="submit" name="enviar" value="Ingresar" class="btn btn-lg btn-primary">
+                    </form>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class='col-1'>
+                    &nbsp;
+                </div>
+        </div>
+    <div class="row">
+        &nbsp;
+    </div>
+    </div>
+</div>
+
+<div class="col">
+            <a class="btn btn-lg btn-primary" href="index.php">Regresar</a>
+</div>
+
+<?php
+
+
+?>

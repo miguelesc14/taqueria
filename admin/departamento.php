@@ -2,7 +2,7 @@
 require_once("controllers/departamento.php");
 include_once("views/header.php");
 include_once("views/menu.php");
-$departamento -> validateRol('Administrador');
+$departamento -> validateRol('administración');
 $action = (isset($_GET['action'])) ? $_GET['action'] : "getAll";
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 switch ($action) {

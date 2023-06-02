@@ -1,5 +1,5 @@
-<?php 
-include('controllers/sistema.php');
-
-$sistema -> login('19030406@itcelaya.edu.mx','1234');
+<?php
+include_once("views/header.php");
+include_once("views/menu.php");
+include_once("views/footer.php");
 ?>

@@ -1,0 +1,408 @@
+hr{
+    color: #00ab8e;
+}
+
+#up_la{
+    height: 15px;
+}
+
+#up_la2{
+    height: 15px;
+}
+
+#linea_azul{
+    background-color: #2f3773;
+    height:56px;
+}
+
+#navig{
+    background-color: #2f3773;
+    height:40px;
+    float: right;
+    align-items: center;
+}
+
+#navig2{
+    position: sticky;
+    float: right;
+    align-items:flex-end;
+}
+
+#navig2.sticky{
+    
+}
+
+#logo{
+    height: 70px;
+}
+
+.logon{
+    height: 6px;
+}
+
+.zeldabotw{
+    color:white;
+    font-size: 14px;
+    text-decoration: none;
+    padding: 10px 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.zeldabotw:hover{
+    background-color:#00ab8e;
+    font-size: 14px;
+}
+
+
+
+
+#leyendatop{
+    color:white;
+    font-size: 14px;
+}
+
+#salva{
+    align-items: center;
+    
+}
+
+#imagen_banner{
+    background-image: url(../images/banner-etica.jpg);
+    height: 300px;
+    background-position: center;
+}
+
+#imagen_banner_contacto{
+    background-image: url(../images/banner-contacto.jpg);
+    height: 300px;
+    background-position: center;
+}
+
+#imagen_banner_progreso{
+    background-image: url(../images/banner-progreso.jpg);
+    height: 300px;
+    background-position: center;
+}
+
+#imagen_banner_ohla{
+    background-image: url(../images/somosohla.jpg);
+    height: 300px;
+    background-position: center;
+}
+
+#imagen_banner_construccion{
+    background-image: url(../images/banner-construccion.jpg);
+    height: 300px;
+    background-position: center;
+}
+
+#imagen_banner_industrial{
+    background-image: url(../images/banner-industrial.jpg);
+    height: 300px;
+    background-position: center;
+}
+
+#imagen_banner_servicios{
+    background-image: url(../images/banner-servicios.jpeg);
+    height: 300px;
+    background-position: center;
+}
+
+#imagen_banner_desarrollos{
+    background-image: url(../images/banner-desarrollos.jpg);
+    height: 300px;
+    background-position: center;
+}
+
+#imagen_banner_proyectos{
+    background-image: url(../images/banner-proyectos.jpg);
+    height: 300px;
+    background-position: center;
+}
+
+
+#imagen_banner_proyectos_index{
+    background-image: url(../images/trenpro.jpg);
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: sepia(0.7);
+    filter: brightness(0.85);
+}
+
+#img_card2{
+    background-image: url(../images/indexe1.jpg);
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: sepia(0.7);
+    filter: brightness(0.85);
+}
+
+#img_card3{
+    background-image: url(../images/indexe2.jpg);
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: sepia(0.7);
+    filter: brightness(0.85);
+}
+
+#img_logo{
+    background-image: url(../images/ohla_logo.svg);
+    height: 50px;
+    background-repeat: no-repeat;
+}
+
+#img_zelda{
+    background-image: url(../images/search.png);
+    height: 27px;
+    width: 35px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#imag2{
+    background-size: cover;
+}
+
+#cardx{
+    height: 35px;
+}
+
+.titulo_ind{
+    text-shadow: 1px 1px 2px #29327b, 0 0 1em #00ab8e, 0 0 0.2em black;
+    font-size: 30px;
+}
+
+.texto_ind{
+    text-shadow: 1px 1px 2px #29327b, 0 0 1em #00ab8e, 0 0 0.2em black;
+    font-size: 20px;
+}
+
+#crd_comida{
+    width: 92%;
+}
+
+.titulo_menu{
+    color: #29327b;
+}
+
+.titulo_menu:hover{
+    color: #00a896;
+}
+
+
+
+#pie{
+    background-color: #2f3773;
+    color:white;
+}
+
+#pie2{
+    width: 30px;
+    height: 50px;
+}
+
+.pie3{
+    height: 50px;
+}
+
+.pie4{
+    font-size: 11px;
+    text-decoration: none;
+    color: white;
+}
+
+#titulo{
+    color: white;
+    display: flex;
+    align-items:center;
+    text-shadow: black 2px 2px 3px;
+    border-radius: 12px;
+    font-size: 67px;
+}
+
+.titulo_sub{
+    color: white;
+    display: flex;
+    align-items:center;
+    text-shadow: black 2px 2px 3px;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+
+#titulon{
+    height: 100px;
+}
+
+#titulon2{
+    height: 256px;
+}
+
+#titulon3{
+    height: 256px;
+}
+
+#titulon4{
+    height: 150px;
+}
+
+.text1{
+    text-align: justify;
+    color: #2f3773;
+}
+
+.titulo_contenido{
+    color: #29327b;
+    font-size: 30px;
+}
+
+.link_contenido{
+    color:#00ab8e;
+    text-decoration: none;
+}
+
+.link_contenido:hover{
+    color:#29327b;
+}
+
+.btn_contenido{
+    color:white;
+    background-color: #00a896;
+    padding: 10px 30px;
+    border-radius: 0;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn_contenido:hover{
+    background-color: #29327b;
+}
+
+.btn_contenido2{
+    color:white;
+    background-color: #00a896;
+    padding: 10px 30px;
+    border-radius: 0;
+    width: auto;
+    float: right;
+    text-decoration: none;
+}
+
+.btn_contenido2:hover{
+    background-color: #29327b;
+}
+
+.imgpro{
+    width: 250px;
+}
+
+.paises{
+    text-align: center;
+    align-items: center;
+    color: #2f3773;
+}
+
+#informe{
+    background-color: #e9e9e9;
+}
+
+#informe2{
+    background-color: white;
+}
+
+#titulo_informe{
+    font-size: 23px;
+    color: #29327b;
+    font-weight: bold;
+}
+
+#titulo_libro{
+    font-size: 23px;
+    color: #29327b;
+    font-weight: bold;
+}
+
+.titulo_informe{
+    font-size: 23px;
+    color: #29327b;
+    font-weight: bold;
+}
+
+.btn_informe{
+    background-color: transparent;
+    border-color: #29327b;
+    color: #29327b;
+    padding: 8px 16px;
+    border-radius: 0;
+    border: 2px solid;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn_informe:hover{
+    background-color: #29327b;
+    color: white;
+}
+
+.subtitulo{
+    color: #29327b;
+    font-size: 40px;
+}
+
+.list_politicas{
+    color: #29327b;
+    font-weight: bold;
+}
+
+.list_politicas:hover{
+    color: #00a896;
+    font-weight: bold;
+}
+
+.subtitulo_contacto{
+    color: #29327b;
+    font-size: 24px;
+    text-align: center;
+}
+
+.subtitulo_contacto1{
+    color: #29327b;
+    font-size: 24px;
+}
+
+.info_contacto{
+    font-style: italic;
+}
+
+
+.funcion_email{
+    color: #29327b;
+}
+
+.tabPanel{
+    height: 85%;
+    background-color: gray;
+    color: #29327b;
+    --text-align: center;
+    --padding-top: 105px;
+    --box-sizing: border-box;
+    --display: none;
+}
+
+#compromiso{
+    background-color: #eaeaea;
+}
+
+.compromiso{
+    background-color: #eaeaea;
+}
