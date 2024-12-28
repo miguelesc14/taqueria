@@ -69,11 +69,11 @@
             <th>
             <div class="btn-group" role="group" aria-label="Basic example">
             <a href="comprar.php?action=efective&id=<?php echo $pedido["id_temp"] ?>"
-                            type="button" class="read_more">Pagar con efectivo</a>
+                            type="button" class="btn btn-lg btn-primary">Pagar con efectivo</a>
             </div> 
             <div class="btn-group" role="group" aria-label="Basic example">
             <a href="comprar.php?action=paypal&id=<?php echo $pedido["id_temp"] ?>"
-                            type="button" class="read_more">Pagar con Paypal</a>
+                            type="button" class="btn btn-lg btn-primary">Pagar con Paypal</a>
             </div> 
             </th>
         <?php endforeach; ?>

@@ -1,6 +1,6 @@
 
 
-<h1 class="titulo">Bitácora</h1>
+<h1 class="titulo">Mi historial</h1>
 <table class="table table-responsive table-bordered">
     <thead>
         <tr>

@@ -32,7 +32,7 @@
                 
                         <div class="col-md-4">
                             <div class="card bg-transparent border my-3 my-md-0">
-                                <img src="<?php echo '../'.$platillo['imagen'];?>" alt="<?php echo $platillo['imagen'];?>" class="rounded-0 card-img-top mg-responsive">
+                                <img src="<?php echo $platillo['imagen'];?>" alt="<?php echo $platillo['imagen'];?>" class="rounded-0 card-img-top mg-responsive">
                                 <div class="card-body">
                                     <h1 class="text-center mb-4"><a href="#" class="badge badge-primary"><?php echo '$'.$platillo['precio'].' c/u';?></a></h1>
                                     <h4 class="pt20 pb20"><?php echo $platillo['nombre'];?></h4>

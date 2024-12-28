@@ -3,7 +3,6 @@ require_once(__DIR__."/controllers/bitacora.php");
 include_once(__DIR__."/views/header.php");
 $bitacora -> validateRol('administracion');
 include_once(__DIR__."/views/menu2.php");
-//require_once(__DIR__."/controllers/pdf.php");
 
 $action = (isset($_GET['action'])) ? $_GET['action'] : "getAll";
 $id = (isset($_GET['id'])) ? $_GET['id'] : null;

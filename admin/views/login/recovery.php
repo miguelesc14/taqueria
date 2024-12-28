@@ -14,8 +14,8 @@ include('views/menu.php');
                     &nbsp;
                 </div>
                 <div class="col">
-                <div class="card">
-                    <div class="card-body py-5 px-md-5">
+                <div class="card bg-transparent border my-3 my-md-0">
+                    <div style="margin: 5%;">
                     <form method="POST" action="login.php?action=reset">
           <!-- Password input -->
           <div class="form-outline mb-4">

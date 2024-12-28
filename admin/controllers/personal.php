@@ -166,15 +166,10 @@ class Personal extends Sistema
         try {
         $this->db->beginTransaction();
 
-        $sql2 = "DELETE FROM personal_pedido WHERE id_personal=:id";
-        $st2 = $this->db->prepare($sql2);
-        $st2->bindParam(":id", $id, PDO::PARAM_INT);
-
         $sql = "DELETE FROM personal WHERE id_personal=:id";
         $st = $this->db->prepare($sql);
         $st->bindParam(":id", $id, PDO::PARAM_INT);
 
-        $st2->execute();
         $st->execute();
 
         $rc = $st->rowCount();

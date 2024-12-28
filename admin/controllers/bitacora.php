@@ -61,6 +61,52 @@ class Bitacora extends Sistema
         return $data;
     }
 
+    public function new ($data)
+    {
+        $this->db();
+        $sql = "INSERT INTO bitacora_pedido (fecha_pedido, hora_pedido, hora_entrega, pedido, costo_total, comentario_general, id_cliente, id_sucursal, direccion) 
+        VALUES (:fecha_pedido, :hora_pedido, :hora_entrega, :pedido, :costo_total, :comentario_general, :id_cliente, :id_sucursal, :direccion)";
+        $st = $this->db->prepare($sql);
+        $st->bindParam(":fecha_pedido", $data['fecha_pedido'], PDO::PARAM_STR);
+        $st->bindParam(":hora_pedido", $data['hora_pedido'], PDO::PARAM_STR);
+        $st->bindParam(":hora_entrega", $data['hora_entrega'], PDO::PARAM_STR);
+        $st->bindParam(":pedido", $data['pedido'], PDO::PARAM_STR);
+        $st->bindParam(":costo_total", $data['costo_total'], PDO::PARAM_STR);
+        $st->bindParam(":comentario_general", $data['comentario_general'], PDO::PARAM_STR);
+        $st->bindParam(":id_cliente", $data['id_cliente'], PDO::PARAM_INT);
+        $st->bindParam(":id_sucursal", $data['id_sucursal'], PDO::PARAM_INT);
+        $st->bindParam(":direccion", $data['direccion'], PDO::PARAM_STR);
+        $st->execute();
+
+        $rc = $st->rowCount();
+        return $rc;
+    }
+
+    public function edit ($id,$data)
+    {
+        $this->db();
+        $sql = "UPDATE bitacora_pedido SET fecha_pedido =:fecha_pedido, 
+        hora_pedido =:hora_pedido, hora_entrega =:hora_entrega, pedido =:pedido,
+         costo_total =:costo_total, comentario_general =:comentario_general, 
+         id_cliente =:id_cliente, id_sucursal =:id_sucursal, direccion =:id_sucursal) 
+        ";
+        $st = $this->db->prepare($sql);
+        $st->bindParam(":fecha_pedido", $data['fecha_pedido'], PDO::PARAM_STR);
+        $st->bindParam(":hora_pedido", $data['hora_pedido'], PDO::PARAM_STR);
+        $st->bindParam(":hora_entrega", $data['hora_entrega'], PDO::PARAM_STR);
+        $st->bindParam(":pedido", $data['pedido'], PDO::PARAM_STR);
+        $st->bindParam(":costo_total", $data['costo_total'], PDO::PARAM_STR);
+        $st->bindParam(":comentario_general", $data['comentario_general'], PDO::PARAM_STR);
+        $st->bindParam(":id_cliente", $data['id_cliente'], PDO::PARAM_INT);
+        $st->bindParam(":id_sucursal", $data['id_sucursal'], PDO::PARAM_INT);
+        $st->bindParam(":direccion", $data['direccion'], PDO::PARAM_STR);
+        $st->bindParam(":id", $id, PDO::PARAM_INT);
+        $st->execute();
+
+        $rc = $st->rowCount();
+        return $rc;
+    }
+
     public function delete($id)
     {
         $this->db();

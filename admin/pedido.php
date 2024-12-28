@@ -14,8 +14,6 @@ switch ($action) {
         $dataP = $pedido->getPlatillos(null);
 
         include('views/pedido/index.php');
-        //include('views/pedido/index.php');
-        
         } else {
             $data = $pedido->get(null);
         $dataP = $pedido->getPlatillos(null);
@@ -23,9 +21,7 @@ switch ($action) {
         }
         break;
     case 'delete':
-        /*$cantidadUP = $pedido->deleteUP($id);
-        $cantidadPeP = $pedido->deletePeP($id);
-        $cantidadPlP = $pedido->deletePlP($id);*/
+
         $cantidad = $pedido->delete($id);
         
         if ($cantidad) {
@@ -42,10 +38,7 @@ switch ($action) {
             $dataS = $pedido->get($id);
             $dataPE = $pedido->getPlatillos($id);
             $cantidadX = $pedido -> transfer($dataS, $dataPE);
-            /*$cantidadUP = $pedido->deleteUP($id);
-            $cantidadPeP = $pedido->deletePeP($id);
-            $cantidadPlP = $pedido->deletePlP($id);
-            $cantidad = $pedido->delete($id);*/
+
             
             if ($cantidadX) {
                 $cantidadY = $pedido->delete($id);

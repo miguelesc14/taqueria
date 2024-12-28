@@ -1,5 +1,5 @@
 <h1><?php echo ($action == 'edit')?'Modificar':'Nuevo' ;?> Platillos</h1>
-<form method="POST" action="menu.php?action=<?php echo $action; ?>">
+<form method="POST" action="menu.php?action=<?php echo $action; ?>" enctype="multipart/form-data">
 <div class="row">
         <div class="col-2">
             <label for="data[id_tipoplatillo]">Tipo de platillo:</label>
@@ -25,6 +25,7 @@
     <div class="col-2">
             <label for="data[id_ingsec]">Ingrediente secundario:</label>
         </div>
+        <div class="row">
         <div class="col-2">
             
             <select name="data[id_ingsec]" required="required">
@@ -42,6 +43,7 @@
                     <?php $selected = " "; endforeach; ?>
             </select>
         </div>
+        </div> 
     </div>
     <div class="row">
         <div class="col-2">
@@ -55,6 +57,21 @@
             value="<?php echo isset($data[0]['precio']) ? $data[0]['precio'] : ''; ?>" minlength="1"  maxlength="100">
         </div>
     </div>
+    <div>
+        <label>Foto:</label>
+    </div>
+    <div>
+    <div class="col-12">
+        <?php if ($action == 'edit'): ?>
+        <div class="alert alert-primary" role="alert">
+        <a href="<?php echo $data[0]['imagen']?>" target="_blank">Descargar la foto actual</a>
+        </div>
+        <?php endif;?>
+            <input type="file" name="fotografia" class="form-control"
+                value='<?php echo isset($data[0]['imagen']) ? $data[0]['imagen'] : ''; ?>' />
+        </div>
+    </div>
+    
     <div class="mb-3">
         <?
         if ($action == 'edit'): ?>

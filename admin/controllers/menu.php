@@ -70,38 +70,95 @@ class Menu extends Sistema
     public function new ($data, $dataTipo,$dataIngSec)
     {
         $this->db();
+
+        try {
+            $this->db->beginTransaction();
+            $hora_actual = date("h:i:s A");
+            $fecha_actual = date("Y-m-d H:i:s");
+                $nombrearchivo = str_replace(" ", "_", $dataTipo[0]['nombre'].$dataIngSec[0]['nombre'].$hora_actual);
+            $nombrearchivo = substr($nombrearchivo, 0, 50);
+
         $sql = "INSERT INTO platillo (nombre, precio, id_tipoplatillo, id_ingsec) 
         VALUES (:nombre, :precio, :id_tipoplatillo, :id_ingsec)";
+
+$sesubio = $this->uploadfile("fotografia", "images/menu/", $nombrearchivo);
+
+
+if ($sesubio) {
+    $sql = "INSERT INTO platillo (nombre, precio, imagen, id_tipoplatillo, id_ingsec) 
+        VALUES (:nombre, :precio,:imagen, :id_tipoplatillo, :id_ingsec)";
+}
+
         $st = $this->db->prepare($sql);
-        $ssaa= $dataTipo[$data['id_tipoplatillo']-1]['nombre'].' de '.$dataIngSec[$data['id_ingsec']-1]['nombre'];
+        $ssaa= $dataTipo[0]['nombre'].' de '.$dataIngSec[0]['nombre'];
         $st->bindParam(":nombre", $ssaa, PDO::PARAM_STR);
         $st->bindParam(":precio", $data['precio'], PDO::PARAM_STR);
+        if ($sesubio) {
+            $st->bindParam(":imagen", $sesubio, PDO::PARAM_STR);
+            }
         $st->bindParam(":id_tipoplatillo", $data['id_tipoplatillo'], PDO::PARAM_INT);
         $st->bindParam(":id_ingsec", $data['id_ingsec'], PDO::PARAM_INT);
         $st->execute();
 
         $rc = $st->rowCount();
+        $this->db->commit();
+    } catch (PDOException $Exception) {
+        $rc = 0;
+        //print "DBA FAIL:" . $Exception->getMessage();
+        $this->db->rollBack();
+        
+    }
         return $rc;
     }
     public function edit($id, $data,$dataTipo,$dataIngSec)
     {
         $this->db();
+        try {
+            $this->db->beginTransaction();
+            $hora_actual = date("h:i:s A");
+            $fecha_actual = date("Y-m-d H:i:s");
+                $nombrearchivo = str_replace(" ", "_", $dataTipo[0]['nombre'].$dataIngSec[0]['nombre'].$hora_actual);
+            $nombrearchivo = substr($nombrearchivo, 0, 50);
+
         $sql = "UPDATE platillo 
         SET nombre = :nombre,
         precio = :precio,
         id_tipoplatillo = :id_tipoplatillo,
         id_ingsec = :id_ingsec
          where id_platillo= :id_platillo";
+
+$sesubio = $this->uploadfile("fotografia", "images/menu/", $nombrearchivo);
+
+if ($sesubio) {
+    $sql = "UPDATE platillo 
+        SET nombre = :nombre,
+        precio = :precio,
+        imagen = :imagen,
+        id_tipoplatillo = :id_tipoplatillo,
+        id_ingsec = :id_ingsec
+         where id_platillo= :id_platillo";
+}
+
         $st = $this->db->prepare($sql);
-        $ssaa= $dataTipo[$data['id_tipoplatillo']-1]['nombre'].' de '.$dataIngSec[$data['id_ingsec']-1]['nombre'];
+        $ssaa= $dataTipo[0]['nombre'].' de '.$dataIngSec[0]['nombre'];
         $st->bindParam(":nombre", $ssaa, PDO::PARAM_STR);
         $st->bindParam(":precio", $data['precio'], PDO::PARAM_STR);
+        if ($sesubio) {
+            $st->bindParam(":imagen", $sesubio, PDO::PARAM_STR);
+            }
         $st->bindParam(":id_tipoplatillo", $data['id_tipoplatillo'], PDO::PARAM_INT);
         $st->bindParam(":id_ingsec", $data['id_ingsec'], PDO::PARAM_INT);
         $st->bindParam(":id_platillo", $data['id_platillo'], PDO::PARAM_INT);
         $st->execute();
 
         $rc = $st->rowCount();
+        $this->db->commit();
+    } catch (PDOException $Exception) {
+        $rc = 0;
+        //print "DBA FAIL:" . $Exception->getMessage();
+        $this->db->rollBack();
+        
+    }
         return $rc;
     }
     public function delete($id)

@@ -6,6 +6,16 @@ require_once(__DIR__."/../admin/controllers/bitacora.php");
 $action = $_SERVER['REQUEST_METHOD'];
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 switch($action){
+    case 'DELETE':
+        $data['mensaje'] = 'No existe el registro';
+        if(!(is_null($id))){
+            $contador=$bitacora->delete($id);
+            if($contador==1){
+                $data['mensaje']='Se eliminó el registro.';
+            }
+        }
+    break;
+
     case 'GET':
     default:
     if(is_null($id))
@@ -13,6 +23,27 @@ switch($action){
     else
         $data = $bitacora->get($id);
     break;
+
+    case 'POST':
+        $data=array();
+        $data = $_POST['data'];
+        if(is_null($id)){
+            $cantidad = $bitacora->new($data);
+            if($cantidad!=0){
+                $data['mensaje'] = 'Se insertó el registro.';
+            }else{
+                $data['mensaje'] = 'Ocurrió un error.';
+            }
+        }else{
+            $cantidad = $bitacora->edit($id, $data);
+            if($cantidad!=0){
+                $data['mensaje'] = 'Se modifico el registro.';
+            }else{
+                $data['mensaje'] = 'Ocurrió un error.';
+            }
+        }
+    break;
+
 }
 
 $json = json_encode($data);

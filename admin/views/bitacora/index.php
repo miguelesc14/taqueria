@@ -1,7 +1,7 @@
 
 
 <h1 class="titulo">Bitácora</h1>
-<a href="bitacora.php?action=pdf" type="button" class="btn btn-primary">Generar PDF</a> 
+<a href="bitacora.php?action=pdf" type="button" class="btn btn-primary">PDF</a> 
 <table class="table table-responsive table-bordered">
     <thead>
         <tr>

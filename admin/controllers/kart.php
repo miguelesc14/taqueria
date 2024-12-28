@@ -432,38 +432,6 @@ class Kart extends Sistema
         }
         return $rc;
     }
-    //pasar de temp a tablas reales
-    /*
-    public function transfer($data,$dataP){
-        
-        $fou = "";
-        $fou2 = "";
-        foreach ($dataP as $key => $platillo):
-                $fou = $fou.$platillo['cantidad'].' '.$platillo['nombre'].' ';
-        endforeach;
-        $fecha_actual = date('Y-m-d');
-        $hora_actual = date('H:i:s');
-        $this->db();
-        $sql = "INSERT INTO bitacora_pedido (fecha_pedido, hora_pedido, hora_entrega, pedido,
-        comentario_general, id_cliente, id_sucursal) 
-        VALUES (:fecha_pedido, :hora_pedido, :hora_entrega, :pedido,
-        :comentario_general, :id_cliente, :id_sucursal)";
-
-
-        $st = $this->db->prepare($sql);
-        $st->bindParam(":fecha_pedido", $fecha_actual, PDO::PARAM_STR);
-        $st->bindParam(":hora_pedido", $data[0]['hora_pedido'], PDO::PARAM_STR);
-        $st->bindParam(":hora_entrega", $hora_actual, PDO::PARAM_STR);
-        $st->bindParam(":pedido", $fou, PDO::PARAM_STR);
-        $st->bindParam(":comentario_general", $data[0]['comentario_general'], PDO::PARAM_STR);
-        $st->bindParam(":id_cliente", $data[0]['id_cliente'], PDO::PARAM_INT);
-        $st->bindParam(":id_sucursal", $data[0]['id_sucursal'], PDO::PARAM_INT);
-
-        $st->execute();
-
-        $rc = $st->rowCount();
-        return $rc;
-    }*/
 
     
 

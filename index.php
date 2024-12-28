@@ -1,5 +1,1 @@
-<?php
-include_once("admin/views/header.php");
-include_once("admin/views/menu.php");
-include_once("admin/views/footer.php");
-?>
+<meta http-equiv="refresh" content="0; url=admin/index.php">

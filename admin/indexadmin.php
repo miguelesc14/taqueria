@@ -123,7 +123,7 @@ if(isset($sesion)){
             <a class="btn btn-lg btn-primary" href="tipo_horario.php">Tipo horario</a>
       </div>
       <div class="col">
-            <a class="btn btn-lg btn-primary" href="publicacion.php">Publicacion</a>
+            <a class="btn btn-lg btn-primary" href="tipo_platillo.php">Tipo platillo</a>
       </div>
    </div>
    <div class="row">

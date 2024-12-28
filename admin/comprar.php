@@ -107,7 +107,7 @@ $costo = $kart->getCosto($id_pedido);
 
     <hr>
 
-    <button class="read_more"type="submit">Pagar con Paypal!</button>
+    <button class="btn btn-lg btn-primary"type="submit">Pagar con Paypal!</button>
     </div>
 </div>
 </form>
@@ -116,7 +116,7 @@ $costo = $kart->getCosto($id_pedido);
     <div class="col-1">
         &nbsp;
     </div>
-    <a class="read_more" href="kart.php?action=trans&id=<?php echo $id_pedido; ?>">Confirmar compra</a>
+    <a class="btn btn-lg btn-primary" href="kart.php?action=trans&id=<?php echo $id_pedido; ?>">Confirmar compra</a>
 </div>
     <?php endif;?>
 

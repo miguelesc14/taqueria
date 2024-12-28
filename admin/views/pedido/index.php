@@ -68,7 +68,7 @@
                                    
                                    ?>
                                    <a href="pedido.php?action=edit&id=<?php echo $pedido["id_pedido"] ?>&id_estatus=<?php echo ($pedido["id_estatus"]+1) ?>"
-                                type="button" class="read_more" <?php if($most==false) echo ' style="display: none"' ?>>↑</a>
+                                type="button" class="btn btn-lg btn-primary" <?php if($most==false) echo ' style="display: none"' ?>>↑</a>
                                 </div>
                                 <div class="col">
                                 <?php 
@@ -79,7 +79,7 @@
                                    
                                    ?>
                                 <a href="pedido.php?action=edit&id=<?php echo $pedido["id_pedido"] ?>&id_estatus=<?php echo ($pedido["id_estatus"]-1) ?>"
-                                type="button" class="read_more" <?php if($most==false) echo ' style="display: none"' ?>>↓</a>
+                                type="button" class="btn btn-lg btn-primary" <?php if($most==false) echo ' style="display: none"' ?>>↓</a>
                                 </div>
                             </div>
                             <div class="row">
@@ -91,7 +91,7 @@
                                    
                                    ?>
                                 <a href="pedido.php?action=trans&id=<?php echo $pedido["id_pedido"] ?>"
-                                type="button" class="read_more" <?php if($mosto==false) echo ' style="display: none"' ?>>Enviar a bitácora</a>
+                                type="button" class="btn btn-lg btn-primary" <?php if($mosto==false) echo ' style="display: none"' ?>>Enviar a bitácora</a>
                             </div>
                         </div>
                         <div class="col">

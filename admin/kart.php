@@ -11,7 +11,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : null;
 $id_platillo = (isset($_GET['id_platillo'])) ? $_GET['id_platillo'] : null;
 switch ($action) {
     case 'new':
-        //$data = $kart->get(null);
+
         $dataUC = $kart->getUC($_SESSION['id_usuario']);
         $dataP = $kart->getPlatillos(null);
         $dataS = $sucursal->get(null);
@@ -90,7 +90,7 @@ switch ($action) {
         break;
     case 'newpl':
         $dataPL = $menu->get(null);
-        //$data = $kart->getPlatillo(null);
+
         if (isset($_POST['enviar'])) {
             $data = $_POST['data'];
             $cantidad = $kart->newPlatillo($id,$data);
@@ -145,13 +145,6 @@ switch ($action) {
                 $data = $kart->get($id);
                 $dataCosto = $kart->getCosto($id);
                 $dataP = $kart->getPlatillos($id);
-                /*print_r($data);
-                echo "<br><br>";
-                print_r($dataCosto);
-                echo "<br><br>";
-                print_r($dataP);
-                echo "<br><br>";
-                die();*/
 
                 $cont=0;
                         
@@ -169,10 +162,6 @@ switch ($action) {
                         if($cantidad3){
                             $cantidad4 = $kart->delete($id);
                             if($cantidad4){
-                                        /*$kart->flash('success', 'Registro dado de alta con éxito');
-                            $dataP = $kart->getPlatillos(null);
-                            $data = $kart->get(null);
-                            include("views/kart/indexpl.php");*/
                             ?><meta http-equiv="refresh" content="0; url=pedidobyuser.php"><?php
                             }else{
                                 $kart->flash('danger', 'Algo fallo en borrar carrito.');
